@@ -5,10 +5,10 @@ class EventsController < ApplicationController
   def index
     @user = current_user
     # @events = current_user.state.events
-    @events = Event.all.where("state_id = ?", @user.state_id)
+    @events = Event.all.where("state_id = ?", @user.state_id).distinct
     
     # @others = Event.joins(:user).where("events.state_id != ?", current_user.state_id)
-    @others = Event.all.where("state_id != ?", @user.state_id)
+    @others = Event.all.where("state_id != ?", @user.state_id).distinct
   end
 
   def create 
