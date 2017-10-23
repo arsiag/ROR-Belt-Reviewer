@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Events</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="top">
+      <% if current_user %>
+        <a class="nav" href="/sessions" data-method="delete">Logout</a>
+      <% end %>
+    </div>
+    
+    <div class="msgarea">
+      <% if flash[:errors] %>
+        <div class="error">
+          <% flash[:errors].each do |msg| %>
+            <p> <%= msg %> </p>
+          <% end %>
+        </div>
+      <% end %>
+      <% if flash[:success] %>
+        <div class="success">
+          <% flash[:success].each do |msg| %>
+            <p> <%= msg %> </p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    
+    <%= yield %>
+  </div>
+
+</body>
+</html>

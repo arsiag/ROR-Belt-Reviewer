@@ -1,0 +1,179 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ * {
+	padding: 0;
+	margin: 0;
+}
+.wrapper {
+	width: 1072px;
+	margin: 0px auto;
+	padding: 5px;
+	overflow: hidden;
+    color: black;
+}
+.top{
+    width: inherit;
+    height: 30px;
+}
+.header {
+    width: inherit;
+    height: 50px;
+    margin-top: 50px;
+}
+.headerleft{
+    width: 800px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: top;
+}
+.headerright {
+    width: 220px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: top;
+}
+#loginleftwrapper {
+    width: 500px;
+    height: 300px;
+    display: inline-block;
+    vertical-align: top;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 15px; 
+}
+#loginrightwrapper{
+    width: 500px;
+    height: 200px;
+    display: inline-block;
+    vertical-align: top;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 15px; 
+}
+#addeventleftwrapper {
+    width: 300px;
+    height: 200px;
+    display: inline-block;
+    vertical-align: top;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 15px; 
+    margin-top: 20px;
+}
+#showeventleftwrapper {
+    width: 500px;
+    height: 600px;
+    display: inline-block;
+    vertical-align: top;
+    padding: 15px; 
+    margin-top: 20px;
+}
+#showeventrightwrapper {
+    width: 260px;
+    height: 500px;
+    display: inline-block;
+    vertical-align: top;
+    padding: 15px; 
+    margin-top: 100px;
+    margin-left: 40px;
+}
+#comments{
+    width: 260px;
+    height: 260px;
+    border: 2px solid black;
+    border-radius: 5px;
+    overflow-y: auto;
+    margin-bottom: 30px;
+}
+#editprofileleftwrapper {
+    width: 300px;
+    height: 200px;
+    display: inline-block;
+    vertical-align: top;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 15px; 
+    margin-top: 20px;
+}
+.msgarea{
+    width: inherit;
+    height: 100px;
+    margin: 0px auto;
+    margin-bottom: 20px;
+    overflow-y: auto;
+}
+table{
+    width: 80%;
+	text-align: left;
+	border: 1px solid black;
+}
+th,td{
+	padding: 5px;
+}
+tr:nth-child(even){
+	background-color: rgb(211, 211, 211);
+}
+h1, h2{
+    margin-bottom: 20px;
+}
+h3{
+    margin-left: 20px;
+}
+p{
+    padding: 5px;
+    /* font-size: 120%; */
+}
+a{
+    padding-left: 5px;
+    /* font-size: 120%; */
+    display: inline-block;
+}
+.shortinput{
+    width: 100px;
+}
+.selectinput{
+    width: 50px;
+    margin-left:20px;
+}
+input{
+    float: right;
+}
+select{
+    width: 175px;
+    float: right;
+}
+textarea{
+    float: right;
+    width: 250px;
+    height: 50px;
+}
+.button{
+    width: 120px;
+    height: 30px;
+    background-color: lightblue;
+    display: block;
+    float: right;
+    margin-top: 10px;
+}
+.nav{
+    float: right;
+}
+.error {
+    color: red;
+}
+.success {
+    color: green;
+}

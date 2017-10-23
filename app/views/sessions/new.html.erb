@@ -1,0 +1,41 @@
+<div class="header">
+    <div class="headerleft">
+        <h1>Welcome!</h1>
+    </div>
+    <div class="headerright">
+        
+    </div>
+</div>
+
+<div id="loginleftwrapper">
+    
+    <form action='/users' method='post'>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <h2>Register:</h2>
+        <p>First Name:: <input type="text" name="user[first_name]"></p>
+        <p>Last Name:: <input type="text" name="user[last_name]"></p>
+        <p>Email: <input type="text" name="user[email]"></p>
+        <p>Location: 
+            <select class="selectinput" name="user[state_id]">
+                <% all_states.each do |state| %>
+                    <option value="<%=state.id%>"><%=state.abbreviation%></option>
+                <%end%>
+            </select>
+            <input class="shortinput" type="text" name="user[location]">
+        </p>
+        <p>Password: <input type="text" name="user[password]"></p>
+        <p>*Password must be at least 8 characters long</p>
+        <p>Confirm password: <input type="text" name="user[password_confirmation]"></p>
+        <input class="button" type='submit' name='register' value='Register'>
+    </form>
+</div>
+<div id="loginrightwrapper">
+    
+    <form action='/sessions' method='post'>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <h2>Login:</h2>
+        <p>Email: <input type="text" name='email'></p>
+        <p>Password: <input type="password" name="password"></p>
+        <input class="button" type="submit" name="login" value="Login">
+    </form>
+</div>

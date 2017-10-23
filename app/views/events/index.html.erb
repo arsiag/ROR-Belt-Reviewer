@@ -1,0 +1,87 @@
+<h2>Welcome <%= @user.first_name %>!</h2>
+<p> <a href="/users/<%= @user.id %>/edit">Edit My Profile</a> </p>
+
+<h2><br>Here are some of the events in your state: </h2>
+<table>
+	<thead>
+		<th>Name</th>
+		<th>Date</th>
+		<th>Location</th>
+        <th>Host</th>
+        <th>Action</th>
+	</thead>
+	<tbody>
+		<% @events.each do |event| %>
+		<tr>
+			<td><a href="/events/<%= event.id %>"><%= event.name %></a></td>
+			<td><p><%= event.event_date %></p></td>
+			<td><p><%= event.location %></p></td>
+			<td><p><%= event.user.first_name %></p></td>
+			<td>
+				<% if event.user == @user %>
+					<a href="/events/<%= event.id %>/edit">Edit</a>
+					<a href="/events/<%= event.id %>" data-method="delete">Delete</a>
+				<% else %>
+					<%if event.joined_users.include?(@user) %>
+						<p>Joining <a href="/events/<%= event.id %>/cancel" data-method="delete">Cancel</a></p>
+					<%else%>
+						<a href="/events/<%= event.id %>/join">Join</a>
+					<%end%>
+				<%end%>
+			</td>
+		</tr>
+		<%end%>
+	</tbody>
+</table>
+<h2><br>Here are some of the events in other states: </h2>
+<table>
+	<thead>
+		<th>Name</th>
+		<th>Date</th>
+		<th>Location</th>
+        <th>State</th>
+        <th>Host</th>
+        <th>Action</th>
+	</thead>
+	<tbody>
+		<% @others.each do |event| %>
+		<tr>
+			<td><a href="/events/<%= event.id %>"><%= event.name %></a></td>
+			<td><p><%= event.event_date %></p></td>
+			<td><p><%= event.location %></p></td>
+            <td><p><%= event.state.abbreviation %></p></td>
+			<td><p><%= event.user.first_name %></p></td>
+			<td>
+				<% if event.user == @user %>
+					<a href="/events/<%= event.id %>/edit">Edit</a>
+					<a href="/events/<%= event.id %>" data-method="delete">Delete</a>
+				<% else %>
+					<%if event.joined_users.include?(@user) %>
+						<p>Joining <a href="/events/<%= event.id %>/cancel" data-method="delete">Cancel</a></p>
+					<%else%>
+						<a href="/events/<%= event.id %>/join">Join</a>
+					<%end%>
+				<%end%>
+			</td>
+		</tr>
+		<%end%>
+	</tbody>
+</table>
+<div id="addeventleftwrapper">
+    <h2>Add Event</h2>
+    <form action="/events" method="post">
+        <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+        <p>Name: <input type="text" name="event[name]"></p>
+        <p>Date: <input type="date" name="event[event_date]"></p>
+        <p>Location: 
+            <select class="selectinput" name="event[state_id]">
+                <% all_states.each do |state| %>
+                    <option value="<%=state.id%>"><%=state.abbreviation%></option>
+                <%end%>
+            </select>
+            <input class="shortinput" type="text" name="event[location]">
+        </p>
+        <input class="button" type="submit" value="Add Event">
+    </form>
+</div>
+
